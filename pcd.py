@@ -6,13 +6,13 @@ pcd = o3d.io.read_point_cloud(pcd_filename)
 
 # Define the cuboid vertices in the correct order to create six rectangular faces
 point1 = [0, 0, 0]
-point2 = [1, 0, 0]
-point3 = [1, 1, 0]
-point4 = [0, 1, 0]
-point5 = [0, 0, 1]
-point6 = [1, 0, 1]
-point7 = [1, 1, 1]
-point8 = [0, 1, 1]
+point2 = [100, 0, 0]
+point3 = [100, 100, 0]
+point4 = [0, 100, 0]
+point5 = [0, 100, 100]
+point6 = [100, 0, 100]
+point7 = [100, 100, 100]
+point8 = [0, 100, 100]
 
 # Create an Open3D mesh object
 cuboid = o3d.geometry.TriangleMesh()
@@ -23,7 +23,9 @@ cuboid.triangles = o3d.utility.Vector3iVector([[0, 1, 2], [0, 2, 3], [0, 4, 1], 
 vis = o3d.visualization.Visualizer()
 vis.create_window()
 vis.add_geometry(pcd)
-vis.add_geometry(cuboid)
+# vis.add_geometry(cuboid)
+# http://www.open3d.org/docs/release/tutorial/visualization/non_blocking_visualization.html
+
 
 # Create a ViewControl object and set the initial position of the camera
 view_control = vis.get_view_control()
